@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { registerUser, SigInOrSignUpGoogle } from "./src/controllers/AuthController";
-import { acceptFollow, deleteFollow, follow, getAuthenticatedUser, getExploreUsers, getTopUsers, getUser, updateUser } from "./src/controllers/UserController";
-import { upload } from "./src/storage/storage";
-import { CommentPost, DeleteComment, DisLikePost, LikePost, SharePost, UnSharePost, createPost, deletePost, getExplorePosts, getHomePosts, getPost, updatePost } from "./src/controllers/PostController";
-import { getNotifications, SeeNotification } from "./src/controllers/NotificationController";
+import { registerUser, SigInOrSignUpGoogle } from "./api/controllers/AuthController";
+import { acceptFollow, deleteFollow, follow, getAuthenticatedUser, getExploreUsers, getTopUsers, getUser, updateUser } from "./api/controllers/UserController";
+import { upload } from "./api/storage/storage";
+import { CommentPost, DeleteComment, DisLikePost, LikePost, SharePost, UnSharePost, createPost, deletePost, getExplorePosts, getHomePosts, getPost, updatePost } from "./api/controllers/PostController";
+import { getNotifications, SeeNotification } from "./api/controllers/NotificationController";
 import 'dotenv/config' // To read CLERK_API_KEY
 
 import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
-import { clerkAuthMiddleware, getUserIdAuthMiddleware } from "./src/middlewares/Auth";
+import { clerkAuthMiddleware, getUserIdAuthMiddleware } from "./api/middlewares/Auth";
 
 
 const express= require('express');
