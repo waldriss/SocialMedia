@@ -1,0 +1,100 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int             @id @default(autoincrement())
+  email      String          @unique
+  name       String
+  username   String          @unique
+  userImage  String?
+  bio        String?
+  posts      Post[]
+  shares    Share[]         @relation("sharer")
+  likes     Like[]          @relation("likers")
+  comments Comment[]       @relation("commenters")
+  followedBy FollowRequest[] @relation("followed")
+  following  FollowRequest[]  @relation("follower")
+}
+
+model Post {
+  id              Int       @id @default(autoincrement())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  caption         String?
+  tags            String[]
+  postImage       String?
+  location        String
+  shared_posts    Share[]   @relation("shared_posts")
+  liked_posts     Like[]    @relation("liked_posts")
+  commented_posts Comment[] @relation("commented_posts")
+  poster          User      @relation(fields: [posterId], references: [id],onDelete: Cascade)
+  posterId        Int
+}
+
+model Share {
+  shared_post   Post @relation("shared_posts", fields: [shared_postId], references: [id],onDelete: Cascade)
+  shared_postId Int
+  sharer        User @relation("sharer", fields: [sharerId], references: [id],onDelete: Cascade)
+  sharerId      Int
+
+  @@id([sharerId, shared_postId])
+}
+
+model FollowRequest {
+  state          String       @default("pending")
+  createdAt      DateTime     @default(now())
+  followed       User         @relation("followed", fields: [followedId], references: [id])
+  followedId     Int
+  follower       User         @relation("follower", fields: [followerId], references: [id])
+  followerId     Int
+  notification   Notification @relation(fields: [notificationId], references: [id])
+  notificationId Int          @unique
+
+  @@id([followerId, followedId])
+}
+
+model Like {
+  createdAt      DateTime     @default(now())
+  liked_post     Post         @relation("liked_posts", fields: [liked_postId], references: [id],onDelete: Cascade)
+  liked_postId   Int
+  liker          User         @relation("likers", fields: [likerId], references: [id],onDelete: Cascade)
+  likerId        Int
+  notification   Notification? @relation(fields: [notificationId], references: [id])
+  notificationId Int?          @unique
+
+  @@id([likerId, liked_postId])
+}
+
+model Comment {
+  id               Int          @id @default(autoincrement())
+  createdAt        DateTime     @default(now())
+  body             String
+  commented_post   Post         @relation("commented_posts", fields: [commented_postId], references: [id],onDelete: Cascade)
+  commented_postId Int
+  commenter        User         @relation("commenters", fields: [commenterId], references: [id],onDelete: Cascade)
+  commenterId      Int
+  notification     Notification? @relation(fields: [notificationId], references: [id])
+  notificationId   Int?          @unique
+}
+
+model Notification {
+  id            Int            @id @default(autoincrement())
+  createdAt     DateTime       @default(now())
+  state         String         @default("unseen")
+  type          String
+  like          Like?
+  comment       Comment?
+  followRequest FollowRequest?
+}
