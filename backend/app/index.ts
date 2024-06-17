@@ -28,7 +28,7 @@ app.use("/", routes);
 const server = http.createServer(app);
 export const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:3000","https://smapp-h03d.onrender.com" ],// Replace with your frontend URL
+    origin: ["http://localhost:3000","https://smapp-h03d.onrender.com","0.0.0.0:3000" ],// Replace with your frontend URL
     methods: ["GET", "POST"],
   },
 });
