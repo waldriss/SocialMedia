@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const AuthController_1 = require("./api/controllers/AuthController");
-const UserController_1 = require("./api/controllers/UserController");
-const storage_1 = require("./api/storage/storage");
-const PostController_1 = require("./api/controllers/PostController");
-const NotificationController_1 = require("./api/controllers/NotificationController");
+const AuthController_1 = require("./app/controllers/AuthController");
+const UserController_1 = require("./app/controllers/UserController");
+const storage_1 = require("./app/storage/storage");
+const PostController_1 = require("./app/controllers/PostController");
+const NotificationController_1 = require("./app/controllers/NotificationController");
 require("dotenv/config"); // To read CLERK_API_KEY
 const clerk_sdk_node_1 = require("@clerk/clerk-sdk-node");
-const Auth_1 = require("./api/middlewares/Auth");
+const Auth_1 = require("./app/middlewares/Auth");
 const express = require('express');
 const routes = express.Router();
 routes.use(Auth_1.clerkAuthMiddleware);
