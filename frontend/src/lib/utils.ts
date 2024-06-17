@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 //export const socket = io("http://localhost:5000");
-export const socket = io("https://imgram-backend.fly.dev/");
+export const socket = io("https://sm-backend-i6qz.onrender.com/");
 
 export function generateUniqueId() {
   const timestamp = Date.now().toString(36); // Convert timestamp to base 36 string
@@ -17,7 +17,7 @@ export function generateUniqueId() {
   return timestamp + randomStr; // Concatenate timestamp and random string
 }
 //export const backendUrl = "http://localhost:5000/";
-export const backendUrl="https://imgram-backend.fly.dev/"
+export const backendUrl="https://sm-backend-i6qz.onrender.com/"
 
 export const NotificationBody = (notification: TNotification) => {
   switch (notification.type) {
