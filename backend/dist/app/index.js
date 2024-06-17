@@ -26,7 +26,7 @@ app.use("/", routes);
 const server = http_1.default.createServer(app);
 exports.io = socketIo(server, {
     cors: {
-        origin: ["http://localhost:3000", "https://smapp-h03d.onrender.com", "0.0.0.0:3000"], // Replace with your frontend URL
+        origin: ["http://localhost:3000", "https://smapp-h03d.onrender.com", "0.0.0.0:3000","https://social-media-iota-sand.vercel.app"], // Replace with your frontend URL
         methods: ["GET", "POST"],
     },
 });
