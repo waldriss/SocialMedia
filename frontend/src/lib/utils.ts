@@ -17,7 +17,7 @@ export function generateUniqueId() {
   return timestamp + randomStr; // Concatenate timestamp and random string
 }
 //export const backendUrl = "http://localhost:5000/";
-export const backendUrl="https://sm-backend-i6qz.onrender.com/"
+export const backendUrl="https://imgram-backend.fly.dev/"
 
 export const NotificationBody = (notification: TNotification) => {
   switch (notification.type) {
