@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { registerUser, SigInOrSignUpGoogle } from "./app/controllers/AuthController";
-import { acceptFollow, deleteFollow, follow, getAuthenticatedUser, getExploreUsers, getTopUsers, getUser, updateUser } from "./app/controllers/UserController";
+import { acceptFollow, deleteFollow, follow, getAuthenticatedUser, getExploreUsers, getTopUsers, getUser, serverfunc, updateUser } from "./app/controllers/UserController";
 import { upload } from "./app/storage/storage";
 import { CommentPost, DeleteComment, DisLikePost, LikePost, SharePost, UnSharePost, createPost, deletePost, getExplorePosts, getHomePosts, getPost, updatePost } from "./app/controllers/PostController";
 import { getNotifications, SeeNotification } from "./app/controllers/NotificationController";
@@ -66,5 +66,6 @@ routes.get("/getNotifications",getNotifications);
 routes.post("/seeNotification",SeeNotification)
 
 //------------------notification routes-----------------------
+routes.get("/server",serverfunc)
 
 module.exports = routes;
