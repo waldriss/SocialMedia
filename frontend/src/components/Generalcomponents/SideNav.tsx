@@ -76,10 +76,12 @@ const SideNav = ({
     }
   };
   const { signOut } = useClerk();
-  const logout = () => {
-    signOut();
+  const logout = async() => {
+    
+    await signOut();
+    router.push("/auth");
     setauthenticatedUser(undefined);
-    router.push("/auth")
+    
   };
 
   return (
