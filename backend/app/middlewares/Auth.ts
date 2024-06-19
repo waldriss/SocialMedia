@@ -21,7 +21,7 @@ export const clerkAuthMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  if (req.path !== "/signin" && req.path !== "/register"&& req.path !=="/SigInOrSignUpGoogle") {
+  if (req.path !== "/signin" && req.path !== "/register"&& req.path !=="/SigInOrSignUpGoogle"&& req.path !=="/server") {
     return ClerkExpressRequireAuth()(req, res, next);
   }
 
@@ -33,7 +33,7 @@ export const getUserIdAuthMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-  if (req.path !== "/signin" && req.path !== "/register"&& req.path !=="/SigInOrSignUpGoogle") {
+  if (req.path !== "/signin" && req.path !== "/register"&& req.path !=="/SigInOrSignUpGoogle" && req.path !=="/server") {
     return getAuthenticatedUserIdMiddleware(req, res, next);
   }
 
