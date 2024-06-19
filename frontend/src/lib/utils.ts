@@ -13,7 +13,7 @@ export const socket = io("https://socialmedia-backend-2z6a.onrender.com/");
 export function generateUniqueId() {
   const timestamp = Date.now().toString(36); // Convert timestamp to base 36 string
   const randomStr = Math.random().toString(36).substring(2, 8);
-  console.log(randomStr); // Generate random string
+ 
   return timestamp + randomStr; // Concatenate timestamp and random string
 }
 //export const backendUrl = "http://localhost:5000/";

@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import { FileWithPath, useDropzone } from "react-dropzone";
+import { FileRejection, FileWithPath, useDropzone } from "react-dropzone";
 
 import { Button } from "@/components/ui/button";
 import { ImagePlus } from "lucide-react";
@@ -29,10 +29,15 @@ const FileUploader = ({ fieldChange, mediaUrl,setResetFile,resetFile }: FileUplo
   const [fileUrl, setFileUrl] = useState<string|undefined>(mediaUrl);
 
   const onDrop = useCallback(
-    (acceptedFiles: FileWithPath[]) => {
-      setFile(acceptedFiles);
-      fieldChange(acceptedFiles);
-      setFileUrl(convertFileToUrl(acceptedFiles[0]));
+    (acceptedFiles: FileWithPath[],fileRejections: FileRejection[]) => {
+      if(fileRejections.length==0){
+        setFile(acceptedFiles);
+        fieldChange(acceptedFiles);
+        setFileUrl(convertFileToUrl(acceptedFiles[0]));
+      }else{
+        console.log("file not valid");
+      }
+      
     },
     [file]
   );
@@ -40,7 +45,9 @@ const FileUploader = ({ fieldChange, mediaUrl,setResetFile,resetFile }: FileUplo
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: {
-      "image/*": [".png", ".jpeg", ".jpg"],
+      'image/jpeg': [],
+      'image/png': [],
+      'image/webp': [], 
     },
   });
 

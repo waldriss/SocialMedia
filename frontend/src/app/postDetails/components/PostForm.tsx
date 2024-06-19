@@ -62,7 +62,7 @@ const PostForm = ({ post }: { post?: TPostDetails}) => {
   const [resetFile, setResetFile] = useState(false);
 
   const handleSubmit = async (formPost: z.infer<typeof PostValidation>) => {
-    console.log(formPost.file[0]);
+    
     if (user?.externalId) {
       if (!post) {
         const createdPost = await createPost({

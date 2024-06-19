@@ -522,7 +522,7 @@ export const useSeeNotification = (getToken: GetToken) => {
       userId: string;
     }) => seeNotification(notificationId, userId, getToken),
     onSuccess: (data, variables) => {
-      console.log(variables.userId);
+      
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.GET_NOTIFICATIONS, variables.userId],
       });

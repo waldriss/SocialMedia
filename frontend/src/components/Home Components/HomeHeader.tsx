@@ -28,7 +28,7 @@ const refresh=()=>{
   queryClient.setQueriesData(
     { queryKey: [QUERY_KEYS.GET_HOME_POSTS,userId] },
     (data:undefined|infiniteQueryData<IPost>) => {
-      console.log(data?.pages[1]);
+      
       return {
         pages:data?.pages?data.pages.slice(0, 1):[],
         pageParams:data?.pageParams?data.pageParams.slice(0, 1):[],

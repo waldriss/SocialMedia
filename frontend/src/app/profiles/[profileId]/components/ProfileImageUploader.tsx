@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useState } from "react";
-import { FileWithPath, useDropzone } from "react-dropzone";
+import { FileRejection, FileWithPath, useDropzone } from "react-dropzone";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -18,14 +18,17 @@ const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 const ProfileImageUploader = ({ fieldChange, mediaUrl,isUpdatingUser }: FileUploaderProps) => {
   const [file, setFile] = useState<File[]>([]);
   const [fileUrl, setFileUrl] = useState<string | undefined>(mediaUrl);
-  const [fileChanged, setfileChanged] = useState(false);
+  
 
   const onDrop = useCallback(
-    (acceptedFiles: FileWithPath[]) => {
+    (acceptedFiles: FileWithPath[],fileRejections: FileRejection[]) => {
+      if(fileRejections.length==0){
       setFile(acceptedFiles);
       fieldChange(acceptedFiles);
       setFileUrl(convertFileToUrl(acceptedFiles[0]));
-      if (fileChanged == false) setfileChanged(true);
+      }else{
+        console.log("file not valid");
+      }
     },
     [file]
   );
@@ -33,7 +36,9 @@ const ProfileImageUploader = ({ fieldChange, mediaUrl,isUpdatingUser }: FileUplo
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: {
-      "image/*": [".png", ".jpeg", ".jpg"],
+      'image/jpeg': [],
+      'image/png': [],
+      'image/webp': [], 
     },
   });
   //${fileChanged?'bg-[rgb(63,67,90,0.8)]':''}

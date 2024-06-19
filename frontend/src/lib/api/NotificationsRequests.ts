@@ -4,7 +4,7 @@ import { backendUrl } from "../utils";
 export const getNotifications = async (userId: string, page: number,getToken: GetToken) => {
     try {
       const token= await getToken();
-      console.log(token);
+      
      
       const notificationsResponse = await fetch(
         `${backendUrl}getNotifications?userId=${userId}&page=${page}`,
@@ -25,7 +25,7 @@ export const getNotifications = async (userId: string, page: number,getToken: Ge
         notificationsData.notifications[0].NbUnseenNotifications=notificationsData.NbUnseenNotifications;
       }
       
-      console.log(notificationsData);
+      
 
       return notificationsData.notifications;
     } catch (error) {
