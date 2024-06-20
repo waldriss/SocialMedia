@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+import { cn, generateUniqueId } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
+import { toast } from "sonner";
 
 interface NavProps {
   isCollapsed: boolean;
@@ -19,7 +20,39 @@ interface NavProps {
   }[];
 }
 
+
 export function Nav({ links, isCollapsed }: NavProps) {
+
+  const toastContent = (message: string, id: string) => (
+    <div className="w-full">
+      <h4 className="font-sans font-semibold text-whiteShade text-base ">
+        Futur features
+      </h4>
+      <div className="font-sans-serif2 flex items-center justify-between w-full">
+        <p className="text-muted-foreground text-[0.95rem]">{message}</p>
+        <Button
+          className="font-sans"
+          onClick={() => toast.dismiss(id)}
+          size={"sm"}
+        >
+          Undo
+        </Button>
+      </div>
+    </div>
+  );
+  const handleclickOnMessages=(event:any)=>{
+
+    event.preventDefault();
+    const id = generateUniqueId();
+    toast(
+      toastContent(
+        "real-time chat feature is not yet available.",
+        id
+      ),
+      { position: "bottom-center", id: id }
+    );
+
+  }
   return (
     <div
       data-collapsed={isCollapsed}
@@ -31,6 +64,8 @@ export function Nav({ links, isCollapsed }: NavProps) {
             <Tooltip key={index} delayDuration={0}>
               <TooltipTrigger asChild>
                 <Link
+                onClick={link.title==="Messages" ? handleclickOnMessages : undefined} 
+
                   href={link.url}
                   className={cn(
                     buttonVariants({ variant: link.variant, size: "icon" }),
@@ -57,6 +92,8 @@ export function Nav({ links, isCollapsed }: NavProps) {
             </Tooltip>
           ) : (
             <Link
+            onClick={link.title==="Messages" ? handleclickOnMessages : undefined} 
+
               key={index}
               href={link.url}
               className={cn(

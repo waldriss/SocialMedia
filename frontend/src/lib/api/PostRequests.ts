@@ -134,7 +134,7 @@ export const getExplorePosts = async (
   try {
    
     const token = await getToken();
-    console.log(token);
+  
     const postsResponse = await fetch(
       `${backendUrl}explorePosts?page=${page}&search=${search}&userId=${userId}`,
       {

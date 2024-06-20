@@ -162,12 +162,12 @@ const getExplorePosts = (req, res) => __awaiter(void 0, void 0, void 0, function
         const { page = "1", search, userId } = req.query;
         const offset = (parseInt(page) - 1) * 10;
         if (!userId) {
-            console.log("here");
+           
             return res.status(401).json({ message: "Unauthorized" });
         }
         else {
             if (parseInt(userId) != req.AuthentifiedUserId) {
-                console.log("here");
+                
                 return res.status(401).json({ message: "Unauthorized" });
             }
             const posts = yield prisma.post.findMany({
