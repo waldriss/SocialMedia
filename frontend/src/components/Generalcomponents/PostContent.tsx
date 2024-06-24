@@ -19,7 +19,7 @@ const PostContent = ({ post }: { post: IPost }) => {
       >
          <Image
             alt="OM"
-            className={`w-full sm:rounded-3xl object-cover sm:object-fill aspect-square transition-opacity !duration-400 ${loadedImage?"opacity-1":"opacity-0"} `}
+            className={`w-full sm:rounded-3xl object-cover  aspect-square transition-opacity !duration-400 ${loadedImage?"opacity-1":"opacity-0"} `}
             width={800}
             height={800}
             src={post ? post.postImage : ""}

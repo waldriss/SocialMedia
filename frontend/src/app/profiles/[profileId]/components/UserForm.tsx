@@ -35,7 +35,7 @@ const formSchema = z.object({
       message: "name must be at least 4 characters.",
     })
     .max(20, { message: "Maximum 20 characters." }),
-  bio: z.string().optional(),
+  bio: z.string().max(350, { message: "Maximum 350 characters." }).optional(),
   file: z.custom<File[]>().optional(),
 });
 

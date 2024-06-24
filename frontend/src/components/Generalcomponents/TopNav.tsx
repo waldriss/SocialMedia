@@ -24,7 +24,7 @@ export const TopNav = ({
 
   return (
     <div className={` md:hidden z-10 flex items-center justify-between pr-6 sm:pr-10 absolute w-full bg-bgShade1 border-b-1 border-borderPrimary h-20`}>
-      <Link href={"/"} className={`px-4 w-full flex gap-x-2`}>
+      <Link href={"/"} className={`px-4  flex gap-x-2`}>
         <Aperture className="h-10 w-10 text-primary stroke-[1.5px]" />
         <h2 className="text-[1.6rem] font-sans-serif2 font-semibold text-primary">
           {" "}

@@ -51,7 +51,7 @@ const ExplorePost = ({
         >
           <div className="flex items-center space-x-2  ">
             <Avatar className="w-9 h-9">
-              <AvatarImage src={explorePost.poster.userImage} />
+              <AvatarImage className="object-cover" src={explorePost.poster.userImage} />
               <AvatarFallback>
                 {" "}
                 <Image

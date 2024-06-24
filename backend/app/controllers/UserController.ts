@@ -20,7 +20,7 @@ export const updateUser = async (req: updateUserRequest, res: Response) => {
       return res.status(401).json({ message: "Unauthorized" });
 
     const { name, username, bio } = req.body;
-    console.log(bio);
+    
 
     const user = await prisma.user.findUnique({ where: { id: userId } });
     if (user) {

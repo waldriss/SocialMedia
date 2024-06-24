@@ -576,22 +576,24 @@ body {}
   background-color: #1e1e29;
 }
 
-
-
-.customScrollBar_dark::-webkit-scrollbar {
-  width: 9px;
-  height: 10px;
-  background: transparent;
-
-}
 .hidescrollbar::-webkit-scrollbar{
   display: none;
 }
+@media (min-width: 640px) {
+  .customScrollBarPostinfos_dark::-webkit-scrollbar {
+    width: 9px;
+    height: 10px;
+    background: transparent;
+  
+  }
+  
+  .customScrollBarPostinfos_dark::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    transition-duration: .2s;
+    background-color: #1e1e29;
+  }
 
-.customScrollBar_dark::-webkit-scrollbar-thumb {
-  border-radius: 9999px;
-  transition-duration: .2s;
-  background-color: #1e1e29;
+
 }
 
 @media (min-width: 640px) {

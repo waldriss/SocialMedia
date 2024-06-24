@@ -13,7 +13,7 @@ const ExploreUser = ({exploreUser}:{exploreUser:TExploreUser}) => {
           className="flex items-center space-x-3   "
         >
           <Avatar className="w-12 h-12">
-            <AvatarImage src={exploreUser.userImage} />
+            <AvatarImage className="object-cover" src={exploreUser.userImage} />
             <AvatarFallback className="text-black">
             <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/>
             </AvatarFallback>

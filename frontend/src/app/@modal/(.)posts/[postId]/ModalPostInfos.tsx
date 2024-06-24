@@ -29,7 +29,7 @@ const ModalPostInfos = ({ children }: { children: React.ReactNode }) => {
      
     </Dialog>:
     <article className='z-[8] bg-white h-screen   fixed top-0  sm:pl-8  xl:pl-5  pt-20  md:pb-6  bg-gradient-to-t from-backgroundgrad1 to-backgroundgrad2 '>
-      <section className="overflow-y-scroll customScrollBar_dark pt-7  h-full w-full pb-32 pr-4 sm:pr-6 xl:pr-3 ">
+      <section className="overflow-y-scroll customScrollBarPostinfos_dark pt-7  h-full w-full pb-32   sm:pr-6 xl:pr-3 ">
       {children}
       </section>
     

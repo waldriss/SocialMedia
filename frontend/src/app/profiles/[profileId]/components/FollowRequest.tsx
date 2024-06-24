@@ -65,7 +65,7 @@ const FollowRequest = ({
           className="flex items-center space-x-3 font-sans-serif2  "
         >
           <Avatar className="w-12 h-12">
-            <AvatarImage src={followerOrFollowed.userImage} />
+            <AvatarImage className="object-cover" src={followerOrFollowed.userImage} />
             <AvatarFallback className="text-black">
             <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/>
             </AvatarFallback>

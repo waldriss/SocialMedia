@@ -58,7 +58,7 @@ const ProfileImageUploader = ({ fieldChange, mediaUrl,isUpdatingUser }: FileUplo
       {fileUrl && (
         <Image
           alt="OM"
-          className="w-full h-full rounded-full"
+          className="w-full h-full rounded-full object-cover"
           width={800}
           height={800}
           src={fileUrl}

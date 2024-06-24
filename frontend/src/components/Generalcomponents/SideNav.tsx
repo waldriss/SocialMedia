@@ -134,7 +134,7 @@ const SideNav = ({
                     className="flex items-center space-x-2"
                   >
                     <Avatar className=" border-borderPrimary border-3 w-12 h-12">
-                      <AvatarImage src={authenticatedUser.userImage} />
+                      <AvatarImage className="object-cover" src={authenticatedUser.userImage} />
                       <AvatarFallback>
                       <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/>
                       </AvatarFallback>

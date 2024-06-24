@@ -30,7 +30,7 @@ const Comment = ({
       <div className="flex items-center space-x-2 relative">
       <Link href={`/profiles/${comment.commenterId}`}>
         <Avatar className="w-9 h-9">
-          <AvatarImage src={comment.commenter.userImage} />
+          <AvatarImage className="object-cover" src={comment.commenter.userImage} />
           <AvatarFallback>
           <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/>
           </AvatarFallback>

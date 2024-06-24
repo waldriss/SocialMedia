@@ -6,9 +6,42 @@ import { UseAuthenticatedUser } from "@/lib/store/store";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import profilesvg from "@public/svgs/profile.svg";
+import { Button } from "../ui/button";
+import { generateUniqueId } from "@/lib/utils";
+import { toast } from "sonner";
 const BottomNav = () => {
   const {authenticatedUser,setauthenticatedUser}=UseAuthenticatedUser();
   const pathname = usePathname();
+  const toastContent = (message: string, id: string) => (
+    <div className="w-full">
+      <h4 className="font-sans font-semibold text-whiteShade text-base ">
+        Futur features
+      </h4>
+      <div className="font-sans-serif2 flex items-center justify-between w-full">
+        <p className="text-muted-foreground text-[0.95rem]">{message}</p>
+        <Button
+          className="font-sans"
+          onClick={() => toast.dismiss(id)}
+          size={"sm"}
+        >
+          Undo
+        </Button>
+      </div>
+    </div>
+  );
+  const handleclickOnMessages=(event:any)=>{
+
+    event.preventDefault();
+    const id = generateUniqueId();
+    toast(
+      toastContent(
+        "real-time chat feature is not yet available.",
+        id
+      ),
+      { position: "bottom-center", id: id }
+    );
+
+  }
 
   return (
     <div className=" md:hidden bottom-6 flex items-center  justify-center w-full h-20 bg-transparent fixed z-10">
@@ -31,7 +64,7 @@ const BottomNav = () => {
             </Link>
           </div>
           <div className="flex w-1/2 justify-evenly pl-5 sm:pl-6">
-            <Link href={"/"}>
+            <Link onClick={handleclickOnMessages} href={"/"}>
               <Send className={` h-8 w-8 sm:h-9 sm:w-9 ${pathname==="/messages"?'text-primary textLuminousShadow':"text-whiteShade"} stroke-[1.5]`} />
             </Link>
 

@@ -31,7 +31,7 @@ const PostInfos = ({
       <div className="flex items-center space-x-2 font-sans-serif2    ">
        <Link href={`/profiles/${post.posterId}`}>
        <Avatar  className="w-12 h-12">
-          <AvatarImage src={post.poster.userImage} />
+          <AvatarImage className="object-cover" src={post.poster.userImage} />
           <AvatarFallback>  <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/></AvatarFallback>
         </Avatar>
        </Link>

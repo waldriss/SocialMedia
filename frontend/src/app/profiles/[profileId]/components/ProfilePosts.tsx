@@ -25,7 +25,7 @@ const ProfilePosts = ({
             className="text-xs sm:text-base w-1/2 rounded-l-none rounded-r-3xl h-full bg-secondary hover:bg-[#2e3142] !text-whiteShade data-[state=active]:bg-primary "
             value="sharedPosts"
           >
-            Shared Posts
+            Saved Posts
           </TabsTrigger>
         </TabsList>
         <TabsContent value="allPosts">

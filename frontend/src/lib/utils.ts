@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 //export const socket = io("http://localhost:5000");
-export const socket = io("https://socialmedia-backend-2z6a.onrender.com/");
+export const socket = io("https://socialmedia-backend-2z6a.onrender.com");
 
 export function generateUniqueId() {
   const timestamp = Date.now().toString(36); // Convert timestamp to base 36 string

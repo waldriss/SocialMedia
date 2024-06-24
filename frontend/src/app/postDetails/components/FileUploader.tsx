@@ -64,7 +64,7 @@ const FileUploader = ({ fieldChange, mediaUrl,setResetFile,resetFile }: FileUplo
             <img
               src={fileUrl}
               alt="image"
-              className="w-full h-full rounded-lg"
+              className="w-full h-full rounded-lg object-cover"
             />
           </div>
 

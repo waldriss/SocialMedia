@@ -137,7 +137,7 @@ const NotificationMenu = ({
           className="flex items-center space-x-2 relative w-full   cursor-pointer "
         >
           <Avatar className="w-12 h-12">
-            <AvatarImage src={notificationAvatarsrc(notification)} />
+            <AvatarImage className="object-cover" src={notificationAvatarsrc(notification)} />
             <AvatarFallback>
             <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/>
             </AvatarFallback>

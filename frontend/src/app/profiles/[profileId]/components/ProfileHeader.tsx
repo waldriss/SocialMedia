@@ -55,7 +55,7 @@ const ProfileHeader = ({
       <div className="absolute rounded-full circle w-40 h-40  sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-backgroundgrad1 border-solid border-backgroundgrad2 border-[12px]  bottom-0 translate-y-1/2 left-2 sm:left-10">
         <Image
           alt={"OM"}
-          className={`w-full h-full ${userImage?"border-whiteShade":"p-6 border-backgroundgrad2"} ${loadedImage?"opacity-1":"opacity-0"} transition-opacity !duration-400 bg-borderPrimary rounded-full border-1 border-solid `}
+          className={`w-full h-full ${userImage?"border-whiteShade":"p-6 border-backgroundgrad2"} ${loadedImage?"opacity-1":"opacity-0"} transition-opacity !duration-400 bg-borderPrimary rounded-full border-1 border-solid object-cover object-center `}
           width={200}
           height={200}
           src={userImage ? userImage : profilesvg.src}

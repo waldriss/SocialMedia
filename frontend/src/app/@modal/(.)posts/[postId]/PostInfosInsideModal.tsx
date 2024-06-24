@@ -66,7 +66,7 @@ const PostInfosInsideModal = ({
           </Button>
         </div>
 
-        <section className="  w-full flex-col items-center xl:h-[664px] bg-[#0d0d12] mt-7 rounded-3xl xl:flex-row flex xl:items-stretch overflow-hidden border-solid border border-1px border-borderPrimary">
+        <section className="  w-full flex-col items-center xl:h-[664px] bg-[#0d0d12] mt-7 sm:rounded-3xl xl:flex-row flex xl:items-stretch overflow-hidden border-solid border-y sm:border border-1px border-borderPrimary">
           <div className="w-full xl:w-1/2 flex flex-col justify-center items-center p-5 ">
             <Image
               alt="OM"

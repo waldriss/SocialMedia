@@ -47,7 +47,7 @@ const Notification = ({
         className="flex items-start space-x-2 relative w-full hover:bg-[rgb(0,0,0,0.15)] py-[10px] px-4 cursor-pointer "
       >
         <Avatar className="w-12 h-12">
-          <AvatarImage src={notificationAvatarsrc(notification)} />
+          <AvatarImage className="object-cover" src={notificationAvatarsrc(notification)} />
           <AvatarFallback>  <Image alt=''  className='w-full h-full p-1 bg-borderPrimary' src={profilesvg.src} height={100} width={100}/></AvatarFallback>
         </Avatar>
 

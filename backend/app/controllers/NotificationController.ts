@@ -94,6 +94,7 @@ export const getNotifications = async (
               {
                 followRequest: {
                   followedId: userId,
+                  state:"pending"
                 },
               },
               {
